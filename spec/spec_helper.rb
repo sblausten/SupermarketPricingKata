@@ -1,4 +1,6 @@
+require './src/offer.rb'
 require './src/checkout.rb'
+
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
