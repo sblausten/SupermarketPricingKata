@@ -22,7 +22,7 @@ describe 'Checkout' do
   end
   describe 'Total with offer' do
     it 'calculates correct total using 3 for 2 offer' do
-      offer_attributes = { name: '3 for 2', item: :coke, quantity: 3, saving: -0.5 }
+      offer_attributes = { name: '3 for 2', item_name: :coke, quantity: 3, saving: -0.5 }
       @offers << Offer.new(offer_attributes)
       checkout = Checkout.new(@offers)
       checkout.scan(@coke)
@@ -34,8 +34,8 @@ describe 'Checkout' do
   end
   describe 'Total with multiple offers' do
     it 'calculates correct total using 3 for 2 offer' do
-      offer_attributes_1 = { name: '3 for 2', item: :coke, quantity: 3, saving: -0.5 }
-      offer_attributes_2 = { name: '2 for 1', item: :beans, quantity: 2, saving: -0.7 }
+      offer_attributes_1 = { name: '3 for 2', item_name: :coke, quantity: 3, saving: -0.5 }
+      offer_attributes_2 = { name: '2 for 1', item_name: :beans, quantity: 2, saving: -0.7 }
       @offers << Offer.new(offer_attributes_1) << Offer.new(offer_attributes_2)
       checkout = Checkout.new(@offers)
       checkout.scan(@coke)

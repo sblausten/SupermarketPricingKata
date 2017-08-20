@@ -1,10 +1,10 @@
 
 class Offer
-  attr_reader :name, :item, :quantity, :saving
+  attr_reader :name, :item_name, :quantity, :saving
 
   def initialize(hash)
-    @name = hash[:name]
-    @item = hash[:item]
+    @name = hash.fetch(:name, 'Offer')
+    @item_name = hash[:item_name]
     @quantity = hash[:quantity]
     @saving = hash[:saving]
   end

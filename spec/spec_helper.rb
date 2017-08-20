@@ -1,5 +1,5 @@
-require './src/offer.rb'
 require './src/checkout.rb'
+require './src/offer.rb'
 
 
 RSpec.configure do |config|

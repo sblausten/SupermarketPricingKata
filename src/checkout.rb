@@ -18,28 +18,45 @@ class Checkout
   private
 
   attr_reader :subtotal
+  def update_items(item)
+    @items << item
+  end
 
   def update_subtotal(ammount)
     @subtotal += ammount
   end
 
   def apply_offers
-    saving = 0
-    @offers.each do |offer|
-      matching_item_count = 0
-      offers_applicable = 0
-      @items.each do |item|
-        matching_item_count += 1 if offer.item == item.name
-      end
-      unless matching_item_count.zero?
-        offers_applicable = matching_item_count / offer.quantity
-      end
-      saving += offers_applicable * offer.saving
-    end
-    update_subtotal(saving)
+    update_subtotal(calculate_saving)
   end
 
-  def update_items(item)
-    @items << item
+  def calculate_saving
+    saving = 0
+    @offers.each do |offer|
+      offer_count = count_offers_applicable(offer)
+      saving += offer_count* offer.saving
+    end
+    saving
+  end
+
+  def count_items_eligable(offer)
+    matching_item_count = 0
+    @items.each do |item|
+      matching_item_count += 1 if item_eligable?(item: item, offer: offer)
+    end
+    matching_item_count
+  end
+
+  def item_eligable?(args)
+    args[:offer].item_name == args[:item].name
+  end
+
+  def count_offers_applicable(offer)
+    offers_applicable = 0
+    eligable_items = count_items_eligable(offer)
+    unless eligable_items.zero?
+      offers_applicable = eligable_items / offer.quantity
+    end
+    offers_applicable
   end
 end
