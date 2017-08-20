@@ -1,0 +1,50 @@
+
+## Brief
+
+Develop the backend business logic for a retailer that sells six different categories of clothes: women’s footwear, men’s footwear, women’s casualwear, men’s casualwear, women’s formalwear and man’s formalwear.
+
+The logic should include checkout, automatic offer addition and payment (no need to provide a way of giving payment). You should be able to generate a receipt via cli.
+
+### The products available are:
+
+Product Name	Category	Price	Quantity in Stock
+Almond Toe Court Shoes, Patent Black	Women’s Footwear	£99.00	5
+Suede Shoes, Blue	Women’s Footwear	£42.00	4
+Leather Driver Saddle Loafers, Tan	Men’s Footwear	£34.00	12
+Flip Flops, Red	Men’s Footwear	£19.00	6
+Flip Flops, Blue	Men’s Footwear	£19.00	0
+Gold Button Cardigan, Black	Women’s Casualwear	£167.00	6
+Cotton Shorts, Medium Red	Women’s Casualwear	£30.00	5
+Fine Stripe Short Sleeve Shirt, Grey	Men’s Casualwear	£49.99	9
+Fine Stripe Short Sleeve Shirt, Green	Men’s Casualwear	£49.99 £39.99	3
+Sharkskin Waistcoat, Charcoal	Men’s Formalwear	£75.00	2
+Lightweight Patch Pocket Blazer,	Men’s Formalwear	£175.50	1
+Bird Print Dress, Black	Women’s Formalwear	£270.00	10
+Mid Twist Cut-Out Dress, Pink	Women’s Formalwear	£540.00	5
+
+
+### There are also discount vouchers available that can be redeemed. The discount vouchers are as follows:
+
+£5.00 off your order
+£10.00 off when you spend over £50.00
+£15.00 off when you have bought at least one footwear item and spent over £75.00
+2 for the price of 1 on Suede Shoes, Blue	Women’s Footwear
+10% off second item when you buy two of the same item.
+
+### The prioritised list of user stories is as follows:
+
+As a User I can view the products and their category, price and availability information.
+
+As a User I can add a product to my shopping cart.
+
+As a User I can remove a product from my shopping cart.
+
+As a User I can view the total price for the products in my shopping cart.
+
+As a User I can apply a voucher to my shopping cart.
+
+As a User I can view the total price for the products in my shopping cart with discounts applied.
+
+As a User I am alerted when I apply an invalid voucher to my shopping cart.
+
+As a User I am unable to add Out of Stock products to the shopping cart.
