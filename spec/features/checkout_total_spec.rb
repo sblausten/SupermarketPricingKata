@@ -27,6 +27,14 @@ describe 'Checkout' do
       checkout.scan(@beans)
       expect(checkout.get_total).to eq(1.7)
     end
+    it 'calculates correct total using 10% off over £50 offer' do
+      offer_attributes = { name: '10% off over £50', threshold: 50, saving: 0.1 }
+      @offers << Offer.new(offer_attributes).extend(PriceThresholdSaving)
+      wine = double('Item', name: :wine, price: 35)
+      checkout = Checkout.new(@offers)
+      2.times { checkout.scan(wine) }
+      expect(checkout.get_total).to eq(63)
+    end
   end
   describe 'Total with multiple offers' do
     it 'calculates correct total using 3 for 2 offer' do

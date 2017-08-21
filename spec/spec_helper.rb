@@ -1,6 +1,7 @@
 require './src/checkout.rb'
 require './src/offers/offer.rb'
 require './src/offers/quantity_saving.rb'
+require './src/offers/price_threshold_saving.rb'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

@@ -31,10 +31,6 @@ class Checkout
   end
 
   def calculate_saving
-    saving = 0
-    @offers.each do |offer|
-      saving += offer.calculate_saving(@items)
-    end
-    saving
+    @offers.inject(0) { |sum, offer| sum + offer.calculate_saving(@items) }
   end
 end
