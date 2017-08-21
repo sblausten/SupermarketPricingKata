@@ -1,10 +1,14 @@
 # Logic for any offers like 3 for 2 or anything where
 # the quantity of items is the key
+
+# Requires implementing class to have interface for
+# saving [negative float], item_name [sym] and quantity [int]
+
 module QuantitySaving
   def calculate_saving(items)
     offer_saving = 0
     offer_count = count_offers_applicable(items)
-    offer_saving += offer_count * saving
+    offer_saving + offer_count * saving
   end
 
   private
